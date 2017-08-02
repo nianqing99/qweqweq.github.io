@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="react native," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="RN框架下多屏幕尺寸自适应样式解决方案@(react native)[ 屏幕适配|] [TOC] 引言 屏幕适配是一个很容易被忽略的问题，但对于精益求精的产品而言，是必不可少的。移动端的适配的目的是让UI效果在不同分辨率的设备下，样式不会走形。换言之，就是如何同一套代码在不同分辨率的手机上跑时，页面元素间的布局间距，留白，以及图片大小会随着变化，在比例上跟设计稿一致。在web中，可以通过多种方式来">
+<meta name="keywords" content="react native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RN框架下多屏幕尺寸自适应样式解决方案">
+<meta property="og:url" content="http://qweqweq.github.io/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/index.html">
+<meta property="og:site_name" content="Yuhao">
+<meta property="og:description" content="RN框架下多屏幕尺寸自适应样式解决方案@(react native)[ 屏幕适配|] [TOC] 引言 屏幕适配是一个很容易被忽略的问题，但对于精益求精的产品而言，是必不可少的。移动端的适配的目的是让UI效果在不同分辨率的设备下，样式不会走形。换言之，就是如何同一套代码在不同分辨率的手机上跑时，页面元素间的布局间距，留白，以及图片大小会随着变化，在比例上跟设计稿一致。在web中，可以通过多种方式来">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-1.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-2.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-3.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-8.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-4.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-5.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-6.png">
+<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-7.png">
+<meta property="og:updated_time" content="2017-04-19T13:01:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RN框架下多屏幕尺寸自适应样式解决方案">
+<meta name="twitter:description" content="RN框架下多屏幕尺寸自适应样式解决方案@(react native)[ 屏幕适配|] [TOC] 引言 屏幕适配是一个很容易被忽略的问题，但对于精益求精的产品而言，是必不可少的。移动端的适配的目的是让UI效果在不同分辨率的设备下，样式不会走形。换言之，就是如何同一套代码在不同分辨率的手机上跑时，页面元素间的布局间距，留白，以及图片大小会随着变化，在比例上跟设计稿一致。在web中，可以通过多种方式来">
+<meta name="twitter:image" content="http://qweqweq.github.io/2017/03/10/images/2-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qweqweq.github.io/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/"/>
+
+
+
+
+
+  <title>RN框架下多屏幕尺寸自适应样式解决方案 | Yuhao</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuhao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qweqweq.github.io/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuhao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RN框架下多屏幕尺寸自适应样式解决方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T15:22:27+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="RN框架下多屏幕尺寸自适应样式解决方案"><a href="#RN框架下多屏幕尺寸自适应样式解决方案" class="headerlink" title="RN框架下多屏幕尺寸自适应样式解决方案"></a>RN框架下多屏幕尺寸自适应样式解决方案</h3><p>@(react native)[ 屏幕适配|]</p>
+<p>[TOC]</p>
+<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><blockquote>
+<p>屏幕适配是一个很容易被忽略的问题，但对于精益求精的产品而言，是必不可少的。移动端的适配的目的是让UI效果在不同分辨率的设备下，样式不会走形。换言之，就是如何同一套代码在不同分辨率的手机上跑时，页面元素间的布局间距，留白，以及图片大小会随着变化，在比例上跟设计稿一致。<br>在web中，可以通过多种方式来进行适配，比如设置viewpoint、media查询等，因此对于嵌入移动的H5页面的适配问题，本文将不做讨论和展开。React native是一套开源的框架，借助RN可以快速的开发出移动APP,包括IOS及Android两端。同样RN框架也存在着多屏幕尺寸的适配问题，并且对Android的支持不是很友好。</p>
+</blockquote>
+<h4 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h4><blockquote>
+<p>不同的机型手机的屏幕尺寸不同，像素级别也不一样，所以样式的展示方式会存在差异。在RN的开发框架下，采用的是flex的布局方式，而flex的布局中，是不支持根据屏幕的尺寸，来进行百分比布局的，因此在设置宽度或者高度时是不需要单位的。<br>    在RN中的单位是pt，因此可以通过Dimensions 来获取设备的宽高，PixelRatio 获取设备屏幕密度值。</p>
+</blockquote>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ol>
+<li>flex弹性布局</li>
+</ol>
+<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。<br>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size，如图1所示。<br><img src="../images/2-1.png" alt=""></p>
+<p>   在移动端的设备中一般都是采用flex弹性布局的方式，在设置容器中的项目宽度时，可以根据flexDirection 来设置项目的排列方式，项目会根据flex的值来划分所占的宽高。</p>
+<p>   示例：ios6 和ios6plus 下的布局自适应<br> <img src="../images/2-2.png" alt=""><br> 如上图2所示，在代码中我们按行进行排列，设置第一行的高度为deviceHight/2.容器的显示方式为flex。<br>至此，我认为在容器当中，不能设置定高，比如height：200，应当进行换算，比如deviceHight/n来设置。而容器中的项目，可以根据容器的高度来进行定高的划分。那么布局上就可以满足自适应的需求。</p>
+<ol>
+<li>图片自适应</li>
+</ol>
+<p>在不同的屏幕下，所表现的图标清晰度及大小会发生改变，那么具体的解决方式有如下几种。<br>安装第三发的npm的包：<br>（1）react-native-fit-image 类似于image组件，示例如图3所示，ios6 plus和Ios7比较。<br><img src="../images/2-3.png" alt=""><br>代码如图4所示：<br><img src="../images/2-8.png" alt=""><br> 经过判断，该包可以满足图片的在设备上的自适应。<br> （2）react-native-style-loader 可以使用web css的方式来进行RN适配的包。支持media查询、支持css中的px, vw, vh, rem, pt 单位。</p>
+<ol>
+<li>可以按官网中的现有的文档适配图片布局</li>
+</ol>
+<p>（1） 官网中Image包含resizeMode这一属性，属性值包括contain, cover, stretch。默认不设置模式等于cover模式。如图5所示，三种模式的不同效果。<br>cover模式自适应宽高，给出高度值即可；<br>contain铺满容器，但是会做截取；<br>stretch铺满容器，拉伸；<br><img src="../images/2-4.png" alt=""><br>目前我们的项目中，所用的模式是属于默认模式，也就是cover，就如图5中最上层样式。<br>（2）官网中还有一种方式，是通过PixelRatio 获取屏幕的像素密度，从而达到图片的自适应。如图6所示。<br><img src="../images/2-5.png" alt=""><br>由图6中可以看出，像素密度的值只有3个：1，2，3，即可以通过设置图片的宽高＊像素密度值来加载不同的图片。目前项目中，默认也是通过这种方式来加载图片。<br>（3）可以根据不同设备的宽高，将 UI 等比放大到 app 上的自适应布局，假设需要100*100的图。代码如图7所示。<br><img src="../images/2-6.png" alt=""><br>（4）可以根据设备的宽高比，来取得屏幕的像素点的值，最后进行样式转换。如图8所示。<br><img src="../images/2-7.png" alt=""></p>
+<h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><pre><code>RN基于pt为单位，可以通过Dimensions来获取宽高，PixelRatio 获取密度，不支持百分比，但可以通过获取屏幕宽度手动计算进行百分比布局。图片的自适应方式上，可以按需求来规划，具体方案还需要讨论再确定。方案的撰写过程中，感谢同事天宝和鹏飞的帮助，给了一些解决方案。
+</code></pre><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p>（1）flex布局:<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a><br>（2）react－native 布局: <a href="https://segmentfault.com/a/1190000002658374" target="_blank" rel="external">https://segmentfault.com/a/1190000002658374</a><br>（3）react-native-fit-image: <a href="https://github.com/huiseoul/react-native-fit-image" target="_blank" rel="external">https://github.com/huiseoul/react-native-fit-image</a><br>（4）react-native-style-loader:<a href="https://github.com/dengchengmi/react-native-style-loader" target="_blank" rel="external">https://github.com/dengchengmi/react-native-style-loader</a><br>（5）Responsive Design: <a href="https://medium.com/@elieslama/responsive-design-in-react-native-876ea9cd72a8" target="_blank" rel="external">https://medium.com/@elieslama/responsive-design-in-react-native-876ea9cd72a8</a> - .hx2xn94fp</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react-native/" rel="tag"># react native</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/10/Nodejs-技术栈之Web框架的研究与应用/" rel="next" title="Nodejs 技术栈之Web框架的研究与应用">
+                <i class="fa fa-chevron-left"></i> Nodejs 技术栈之Web框架的研究与应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/14/react同构研究/" rel="prev" title="react同构研究">
+                react同构研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/"
+     data-title="RN框架下多屏幕尺寸自适应样式解决方案"
+     data-content=""
+     data-url="http://qweqweq.github.io/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/"
+           data-title="RN框架下多屏幕尺寸自适应样式解决方案" data-url="http://qweqweq.github.io/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpeg"
+               alt="Yuhao" />
+          <p class="site-author-name" itemprop="name">Yuhao</p>
+           
+              <p class="site-description motion-element" itemprop="description">专注于前端开发，目前就职于上海中智关爱通</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RN框架下多屏幕尺寸自适应样式解决方案"><span class="nav-number">1.</span> <span class="nav-text">RN框架下多屏幕尺寸自适应样式解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引言"><span class="nav-number">1.1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析"><span class="nav-number">1.2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、总结"><span class="nav-number">1.4.</span> <span class="nav-text">四、总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuhao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuhao2020"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
