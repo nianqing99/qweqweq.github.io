@@ -102,24 +102,24 @@
 <meta property="og:site_name" content="Yuhao">
 <meta property="og:description" content="引言 本文主要从autopilot入手，解释了什么是容器化的NodeJs微服务、NodeJs微服务所利用的技术栈，并对这些技术进行了解释和说明。  通过梳理jsconf中Wyatt Preul 分享的NodeJS Microservices on Autopilot的PPT，理清了什么是容器化的微服务。当前的各类应用的服务中，后端的服务及业务逻辑之间是相互依赖的，而且服务也非常复杂，子服务之间相互">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/13.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/13.png">
 <meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/1.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/12.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/11.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/10.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/9.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/3.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/2.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/4.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/5.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/6.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/7.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/08/02/images/8.png">
-<meta property="og:updated_time" content="2017-08-03T02:43:00.000Z">
+<meta property="og:image" content="http://qweqweq.github.io/images/12.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/11.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/10.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/9.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/3.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/4.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/5.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/6.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/7.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/8.png">
+<meta property="og:updated_time" content="2017-08-04T14:30:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="autopilot下的NodeJs微服务">
 <meta name="twitter:description" content="引言 本文主要从autopilot入手，解释了什么是容器化的NodeJs微服务、NodeJs微服务所利用的技术栈，并对这些技术进行了解释和说明。  通过梳理jsconf中Wyatt Preul 分享的NodeJS Microservices on Autopilot的PPT，理清了什么是容器化的微服务。当前的各类应用的服务中，后端的服务及业务逻辑之间是相互依赖的，而且服务也非常复杂，子服务之间相互">
-<meta name="twitter:image" content="http://qweqweq.github.io/2017/08/02/images/13.png">
+<meta name="twitter:image" content="http://qweqweq.github.io/images/13.png">
 
 
 
@@ -381,7 +381,7 @@
 <li>动态更新反向代理配置等</li>
 </ul>
 <p>Autopilot ContainerPilot：</p>
-<p>ContainerPilot会定时进行health check 来监控容器中服务的运行情况，一旦onChange就告知consul。生命周期如下图所示：<br><img src="../images/13.png" alt=""></p>
+<p>ContainerPilot会定时进行health check 来监控容器中服务的运行情况，一旦onChange就告知consul。生命周期如下图所示：<br><img src="/images/13.png" alt=""></p>
 <p>参考文档：<a href="http://autopilotpattern.io/" target="_blank" rel="external">Autopilot Pattern Applications</a></p>
 <h3 id="NodeJs微服务技术栈"><a href="#NodeJs微服务技术栈" class="headerlink" title="NodeJs微服务技术栈"></a>NodeJs微服务技术栈</h3><p>在Wyatt Preul分享的ppt示例中，有这样一副图，如下。图中用到了很多新的技术栈。包括下面几个方面：</p>
 <ul>
@@ -397,7 +397,7 @@
 <blockquote>
 <p>Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union FS 等技术，对进程进行封装隔离，属于操作系统层面的虚拟化技术。由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。<br>Docker 在容器的基础上，进行了进一步的封装，从文件系统、网络互联到进程隔离等等，极大的简化了容器的创建和维护。使得 Docker 技术比虚拟机技术更为轻便、快捷。如下图。<br>传统虚拟化和Docker的不同之处在于传统的虚拟化技术，会运行一套完整的操作系统。</p>
 </blockquote>
-<p><img src="../images/12.png" alt=""><br><img src="../images/11.png" alt=""></p>
+<p><img src="/images/12.png" alt=""><br><img src="/images/11.png" alt=""></p>
 <p>本文的示例源码中，用到了很多docker的知识，设计镜像定制、容器操作、health check、端口暴露等,这里不作展开，感兴趣的自行查看文档。</p>
 <p>参考文档：<a href="https://yeasy.gitbooks.io/docker_practice/introduction/" target="_blank" rel="external">docker</a></p>
 <h5 id="Consul"><a href="#Consul" class="headerlink" title="Consul"></a>Consul</h5><p>1.什么是Consul？</p>
@@ -427,7 +427,7 @@
 <h5 id="Traefɪk"><a href="#Traefɪk" class="headerlink" title="Træfɪk"></a>Træfɪk</h5><blockquote>
 <p>Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反向代理、负载均衡工具。 它支持多种后台 (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Rest API, file…) 来自动化、动态的应用它的配置文件设置。<br>主要作用是在多个Docker container 中实现负载均衡的，支持反向代理动态配置热更新如下图。</p>
 </blockquote>
-<p><img src="../images/10.png" alt=""></p>
+<p><img src="/images/10.png" alt=""></p>
 <p>参考中文文档：<a href="https://docs.traefik.cn/" target="_blank" rel="external">Træfɪk</a><br>参考英文文档：<a href="https://docs.traefik.io/" target="_blank" rel="external">Træfɪk</a></p>
 <h5 id="NATS"><a href="#NATS" class="headerlink" title="NATS"></a>NATS</h5><p>主要是提供一套即时的NAT server监控dashboard。详见<a href="https://github.com/devfacet/natsboard" target="_blank" rel="external">github</a></p>
 <h5 id="Prometheus"><a href="#Prometheus" class="headerlink" title="Prometheus"></a>Prometheus</h5><p>1.什么是 Prometheus？</p>
@@ -450,7 +450,7 @@
 <li>轻松实现数据可视化</li>
 </ul>
 <p>4.系统架构</p>
-<p><img src="../images/9.png" alt=""></p>
+<p><img src="/images/9.png" alt=""></p>
 <p>服务过程: Prometheus daemon 负责定时去目标上pull metrics(指标) 数据，每个pull目标需要暴露一个http服务的接口给它定时抓取。<br>Prometheus支持通过配置文件、Consul、DNS、kubernetes等方式指定抓取目标。<br>Alertmanager 是独立于Prometheus的一个组件，可以支持Prometheus的查询语句，提供十分灵活的报警方式。<br>Prometheus支持很多方式的图表可视化，例如Grafana，自带的Promdash，以及自身提供的模版引擎等等，还提供HTTP API的查询方式，自定义所需要的输出。<br>PushGateway这个组件是支持Client主动推送 metrics 到PushGateway，而Prometheus只是定时去Gateway上抓取数据。</p>
 <p>参考文档：<a href="https://prometheus.io/docs/introduction/overview/" target="_blank" rel="external">Prometheus</a></p>
 <h5 id="InfluxDB"><a href="#InfluxDB" class="headerlink" title="InfluxDB"></a>InfluxDB</h5><blockquote>
@@ -466,14 +466,14 @@
 <h3 id="示例代码实践"><a href="#示例代码实践" class="headerlink" title="示例代码实践"></a>示例代码实践</h3><p>首先安装<a href="https://docs.docker.com/docker-for-mac/install/" target="_blank" rel="external">docker for mac</a> ,否则无法运行示例。（示例的使用说明有误，localhost:10001没有对外发布，对内的，localhost就好）</p>
 <p>示例代码：<a href="https://github.com/autopilotpattern/nodejs-example" target="_blank" rel="external">nodeJS-MicroServices-example</a></p>
 <p>相关展示界面如下：</p>
-<p>localhost:8080  =&gt;  Traefik<br><img src="../images/3.png" alt=""></p>
-<p>localhost:3000 =&gt; Nats<br><img src="../images/2.png" alt=""></p>
-<p>localhost:8083  =&gt;InfluxDB<br><img src="../images/4.png" alt=""></p>
-<p>localhost:8500 =&gt; Consul<br><img src="../images/5.png" alt=""></p>
-<p>localhost:9090 =&gt; Prometheus<br><img src="../images/6.png" alt=""></p>
-<p>localhost =&gt; 示例中NodeJS本身的应用服务<br><img src="../images/7.png" alt=""></p>
+<p>localhost:8080  =&gt;  Traefik<br><img src="/images/3.png" alt=""></p>
+<p>localhost:3000 =&gt; Nats<br><img src="/images/2.png" alt=""></p>
+<p>localhost:8083  =&gt;InfluxDB<br><img src="/images/4.png" alt=""></p>
+<p>localhost:8500 =&gt; Consul<br><img src="/images/5.png" alt=""></p>
+<p>localhost:9090 =&gt; Prometheus<br><img src="/images/6.png" alt=""></p>
+<p>localhost =&gt; 示例中NodeJS本身的应用服务<br><img src="/images/7.png" alt=""></p>
 <p>在docker中通过kitematic 可以管理、监控各个服务的运行情况.</p>
-<p><img src="../images/8.png" alt=""></p>
+<p><img src="/images/8.png" alt=""></p>
 
       
     </div>

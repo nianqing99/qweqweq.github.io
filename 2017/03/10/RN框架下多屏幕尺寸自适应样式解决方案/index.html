@@ -102,19 +102,19 @@
 <meta property="og:site_name" content="Yuhao">
 <meta property="og:description" content="RN框架下多屏幕尺寸自适应样式解决方案@(react native)[ 屏幕适配|] [TOC] 引言 屏幕适配是一个很容易被忽略的问题，但对于精益求精的产品而言，是必不可少的。移动端的适配的目的是让UI效果在不同分辨率的设备下，样式不会走形。换言之，就是如何同一套代码在不同分辨率的手机上跑时，页面元素间的布局间距，留白，以及图片大小会随着变化，在比例上跟设计稿一致。在web中，可以通过多种方式来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-1.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-2.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-3.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-8.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-4.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-5.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-6.png">
-<meta property="og:image" content="http://qweqweq.github.io/2017/03/10/images/2-7.png">
-<meta property="og:updated_time" content="2017-04-19T13:01:19.000Z">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-1.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-2.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-3.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-8.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-4.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-5.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-6.png">
+<meta property="og:image" content="http://qweqweq.github.io/images/2-7.png">
+<meta property="og:updated_time" content="2017-08-04T14:31:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN框架下多屏幕尺寸自适应样式解决方案">
 <meta name="twitter:description" content="RN框架下多屏幕尺寸自适应样式解决方案@(react native)[ 屏幕适配|] [TOC] 引言 屏幕适配是一个很容易被忽略的问题，但对于精益求精的产品而言，是必不可少的。移动端的适配的目的是让UI效果在不同分辨率的设备下，样式不会走形。换言之，就是如何同一套代码在不同分辨率的手机上跑时，页面元素间的布局间距，留白，以及图片大小会随着变化，在比例上跟设计稿一致。在web中，可以通过多种方式来">
-<meta name="twitter:image" content="http://qweqweq.github.io/2017/03/10/images/2-1.png">
+<meta name="twitter:image" content="http://qweqweq.github.io/images/2-1.png">
 
 
 
@@ -370,17 +370,17 @@
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ol>
 <li>flex弹性布局</li>
 </ol>
-<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。<br>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size，如图1所示。<br><img src="../images/2-1.png" alt=""></p>
+<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。<br>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size，如图1所示。<br><img src="/images/2-1.png" alt=""></p>
 <p>   在移动端的设备中一般都是采用flex弹性布局的方式，在设置容器中的项目宽度时，可以根据flexDirection 来设置项目的排列方式，项目会根据flex的值来划分所占的宽高。</p>
-<p>   示例：ios6 和ios6plus 下的布局自适应<br> <img src="../images/2-2.png" alt=""><br> 如上图2所示，在代码中我们按行进行排列，设置第一行的高度为deviceHight/2.容器的显示方式为flex。<br>至此，我认为在容器当中，不能设置定高，比如height：200，应当进行换算，比如deviceHight/n来设置。而容器中的项目，可以根据容器的高度来进行定高的划分。那么布局上就可以满足自适应的需求。</p>
+<p>   示例：ios6 和ios6plus 下的布局自适应<br> <img src="/images/2-2.png" alt=""><br> 如上图2所示，在代码中我们按行进行排列，设置第一行的高度为deviceHight/2.容器的显示方式为flex。<br>至此，我认为在容器当中，不能设置定高，比如height：200，应当进行换算，比如deviceHight/n来设置。而容器中的项目，可以根据容器的高度来进行定高的划分。那么布局上就可以满足自适应的需求。</p>
 <ol>
 <li>图片自适应</li>
 </ol>
-<p>在不同的屏幕下，所表现的图标清晰度及大小会发生改变，那么具体的解决方式有如下几种。<br>安装第三发的npm的包：<br>（1）react-native-fit-image 类似于image组件，示例如图3所示，ios6 plus和Ios7比较。<br><img src="../images/2-3.png" alt=""><br>代码如图4所示：<br><img src="../images/2-8.png" alt=""><br> 经过判断，该包可以满足图片的在设备上的自适应。<br> （2）react-native-style-loader 可以使用web css的方式来进行RN适配的包。支持media查询、支持css中的px, vw, vh, rem, pt 单位。</p>
+<p>在不同的屏幕下，所表现的图标清晰度及大小会发生改变，那么具体的解决方式有如下几种。<br>安装第三发的npm的包：<br>（1）react-native-fit-image 类似于image组件，示例如图3所示，ios6 plus和Ios7比较。<br><img src="/images/2-3.png" alt=""><br>代码如图4所示：<br><img src="/images/2-8.png" alt=""><br> 经过判断，该包可以满足图片的在设备上的自适应。<br> （2）react-native-style-loader 可以使用web css的方式来进行RN适配的包。支持media查询、支持css中的px, vw, vh, rem, pt 单位。</p>
 <ol>
 <li>可以按官网中的现有的文档适配图片布局</li>
 </ol>
-<p>（1） 官网中Image包含resizeMode这一属性，属性值包括contain, cover, stretch。默认不设置模式等于cover模式。如图5所示，三种模式的不同效果。<br>cover模式自适应宽高，给出高度值即可；<br>contain铺满容器，但是会做截取；<br>stretch铺满容器，拉伸；<br><img src="../images/2-4.png" alt=""><br>目前我们的项目中，所用的模式是属于默认模式，也就是cover，就如图5中最上层样式。<br>（2）官网中还有一种方式，是通过PixelRatio 获取屏幕的像素密度，从而达到图片的自适应。如图6所示。<br><img src="../images/2-5.png" alt=""><br>由图6中可以看出，像素密度的值只有3个：1，2，3，即可以通过设置图片的宽高＊像素密度值来加载不同的图片。目前项目中，默认也是通过这种方式来加载图片。<br>（3）可以根据不同设备的宽高，将 UI 等比放大到 app 上的自适应布局，假设需要100*100的图。代码如图7所示。<br><img src="../images/2-6.png" alt=""><br>（4）可以根据设备的宽高比，来取得屏幕的像素点的值，最后进行样式转换。如图8所示。<br><img src="../images/2-7.png" alt=""></p>
+<p>（1） 官网中Image包含resizeMode这一属性，属性值包括contain, cover, stretch。默认不设置模式等于cover模式。如图5所示，三种模式的不同效果。<br>cover模式自适应宽高，给出高度值即可；<br>contain铺满容器，但是会做截取；<br>stretch铺满容器，拉伸；<br><img src="/images/2-4.png" alt=""><br>目前我们的项目中，所用的模式是属于默认模式，也就是cover，就如图5中最上层样式。<br>（2）官网中还有一种方式，是通过PixelRatio 获取屏幕的像素密度，从而达到图片的自适应。如图6所示。<br><img src="/images/2-5.png" alt=""><br>由图6中可以看出，像素密度的值只有3个：1，2，3，即可以通过设置图片的宽高＊像素密度值来加载不同的图片。目前项目中，默认也是通过这种方式来加载图片。<br>（3）可以根据不同设备的宽高，将 UI 等比放大到 app 上的自适应布局，假设需要100*100的图。代码如图7所示。<br><img src="/images/2-6.png" alt=""><br>（4）可以根据设备的宽高比，来取得屏幕的像素点的值，最后进行样式转换。如图8所示。<br><img src="/images/2-7.png" alt=""></p>
 <h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><pre><code>RN基于pt为单位，可以通过Dimensions来获取宽高，PixelRatio 获取密度，不支持百分比，但可以通过获取屏幕宽度手动计算进行百分比布局。图片的自适应方式上，可以按需求来规划，具体方案还需要讨论再确定。方案的撰写过程中，感谢同事天宝和鹏飞的帮助，给了一些解决方案。
 </code></pre><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p>（1）flex布局:<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a><br>（2）react－native 布局: <a href="https://segmentfault.com/a/1190000002658374" target="_blank" rel="external">https://segmentfault.com/a/1190000002658374</a><br>（3）react-native-fit-image: <a href="https://github.com/huiseoul/react-native-fit-image" target="_blank" rel="external">https://github.com/huiseoul/react-native-fit-image</a><br>（4）react-native-style-loader:<a href="https://github.com/dengchengmi/react-native-style-loader" target="_blank" rel="external">https://github.com/dengchengmi/react-native-style-loader</a><br>（5）Responsive Design: <a href="https://medium.com/@elieslama/responsive-design-in-react-native-876ea9cd72a8" target="_blank" rel="external">https://medium.com/@elieslama/responsive-design-in-react-native-876ea9cd72a8</a> - .hx2xn94fp</p>
 
