@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react," />
+  <meta name="keywords" content="NodeJs react koa," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="专注于前端开发，目前就职于上海中智关爱通">
-<meta name="keywords" content="react">
+<meta name="description" content="问题背景在项目中，我需要实时记录差分包的生成状态，并将差分包及apk上传到阿里OSS中，当前的做法是通过api轮询的方式，来控制前端的进度展示。但这会带来的问题是，如果其中某一环节出现问题，那么前端就会陷入死循环。这样我考虑通过socket io 来建立持久化链接，来实时展示文件的生成及上传进度。 经过不断尝试及文档的查阅，终于成功将客户端与服务端socket io 链接。 网上现有的文档中，大都">
+<meta name="keywords" content="NodeJs react koa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react同构研究">
-<meta property="og:url" content="http://qweqweq.github.io/2017/04/14/react同构研究/index.html">
+<meta property="og:title" content="socket io connect problem with koa &amp; react">
+<meta property="og:url" content="http://qweqweq.github.io/2017/09/26/socket-io-connect-problem-with-koa-react/index.html">
 <meta property="og:site_name" content="Yuhao">
-<meta property="og:description" content="专注于前端开发，目前就职于上海中智关爱通">
+<meta property="og:description" content="问题背景在项目中，我需要实时记录差分包的生成状态，并将差分包及apk上传到阿里OSS中，当前的做法是通过api轮询的方式，来控制前端的进度展示。但这会带来的问题是，如果其中某一环节出现问题，那么前端就会陷入死循环。这样我考虑通过socket io 来建立持久化链接，来实时展示文件的生成及上传进度。 经过不断尝试及文档的查阅，终于成功将客户端与服务端socket io 链接。 网上现有的文档中，大都">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-04-19T13:01:19.000Z">
+<meta property="og:updated_time" content="2017-09-26T07:57:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react同构研究">
-<meta name="twitter:description" content="专注于前端开发，目前就职于上海中智关爱通">
+<meta name="twitter:title" content="socket io connect problem with koa &amp; react">
+<meta name="twitter:description" content="问题背景在项目中，我需要实时记录差分包的生成状态，并将差分包及apk上传到阿里OSS中，当前的做法是通过api轮询的方式，来控制前端的进度展示。但这会带来的问题是，如果其中某一环节出现问题，那么前端就会陷入死循环。这样我考虑通过socket io 来建立持久化链接，来实时展示文件的生成及上传进度。 经过不断尝试及文档的查阅，终于成功将客户端与服务端socket io 链接。 网上现有的文档中，大都">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://qweqweq.github.io/2017/04/14/react同构研究/"/>
+  <link rel="canonical" href="http://qweqweq.github.io/2017/09/26/socket-io-connect-problem-with-koa-react/"/>
 
 
 
 
 
-  <title>react同构研究 | Yuhao</title>
+  <title>socket io connect problem with koa & react | Yuhao</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qweqweq.github.io/2017/04/14/react同构研究/">
+    <link itemprop="mainEntityOfPage" href="http://qweqweq.github.io/2017/09/26/socket-io-connect-problem-with-koa-react/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuhao">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react同构研究</h1>
+          <h1 class="post-title" itemprop="name headline">socket io connect problem with koa & react</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T17:18:00+08:00">
-                2017-04-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T15:13:39+08:00">
+                2017-09-26
               </time>
             
 
@@ -321,8 +321,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/14/react同构研究/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/14/react同构研究/" itemprop="commentCount"></span>
+                <a href="/2017/09/26/socket-io-connect-problem-with-koa-react/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/26/socket-io-connect-problem-with-koa-react/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,7 +350,28 @@
       
 
       
-        
+        <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>在项目中，我需要实时记录差分包的生成状态，并将差分包及apk上传到阿里OSS中，当前的做法是通过api轮询的方式，来控制前端的进度展示。但这会带来的问题是，如果其中某一环节出现问题，那么前端就会陷入死循环。这样我考虑通过socket io 来建立持久化链接，来实时展示文件的生成及上传进度。</p>
+<p>经过不断尝试及文档的查阅，终于成功将客户端与服务端socket io 链接。</p>
+<p>网上现有的文档中，大都是以express做为参考依据的，并没有koa等相关的例子，踩了好多坑。下面将我的构建方式分享给大家，希望对大家能有所帮助。</p>
+<p>环境：{<br>    node: 7.8.0<br>    socket:2.3.0<br>    react: 15.4.2<br>    webpack: 2.5.1<br>}<br>node server: localhost: 3000<br>web client: localhost:3001</p>
+<p>根据官网上文档<a href="https://socket.io/docs" target="_blank" rel="external">socket.io</a>来初步搭建socket io服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install socket.io --save </div><div class="line">npm install socket.io-client --save</div></pre></td></tr></table></figure>
+<ul>
+<li>node server</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa();</div><div class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">3000</span>;</div><div class="line"><span class="comment">//socket io </span></div><div class="line"><span class="keyword">let</span> socket = <span class="built_in">require</span>(<span class="string">'socket.io'</span>).listen(app.listen(port));</div><div class="line">socket.on(<span class="string">'connection'</span>,(client)=&gt;&#123;</div><div class="line">    <span class="comment">//sock client func</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">---------------------------------------------------</div><div class="line"><span class="comment">//也可以这样写</span></div><div class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa();</div><div class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">3000</span>;</div><div class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">'http'</span>).createServer(app.callback());</div><div class="line">server.listen(port);</div><div class="line"><span class="comment">//socket io </span></div><div class="line"><span class="keyword">let</span> socket = <span class="built_in">require</span>(<span class="string">'socket.io'</span>).listen(server);</div><div class="line">socket.on(<span class="string">'connection'</span>,(client)=&gt;&#123;</div><div class="line">    <span class="comment">//sock client func</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>web clinet</li>
+</ul>
+<p>可以通过两种方式来引入socket.io-client,一种是webpack的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// one way</span></div><div class="line"> plugins: [</div><div class="line">     <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</div><div class="line">         io: <span class="string">'socket.io-client'</span></div><div class="line">    &#125;)</div><div class="line"> ]</div><div class="line"><span class="comment">// the another way</span></div><div class="line"><span class="comment">// 引入babel 文件后</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> io <span class="keyword">from</span> <span class="string">'socket.io-client'</span>;</div><div class="line"><span class="keyword">var</span> socket = io(<span class="string">'http://localhost:3000/'</span>);</div><div class="line">socket.on(<span class="string">'connect'</span>, ()=&gt;&#123;</div><div class="line">    <span class="comment">// code you want to do something</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>其它：</p>
+<p>在跨域问题上，我尝试过用koa-cors 和cors 但是都不能解决我的问题，后来发现，这两种都是对于node 本身的api 请求上做的跨域，或者说，其内部的源码写的是<code>&#39;Access-Control-Allow-Origin&#39;, true</code>，也就是允许跨域，但是问题依然存在。设置socket configure 也不能解决问题。<br>后来项目启动的js 脚本中，加上了cross-env 解决了问题</p>
+<blockquote>
+<p> 参考文档：</p>
+</blockquote>
+<p><a href="https://webpack.js.org/plugins/provide-plugin/" target="_blank" rel="external">webpack providePlugin</a><br><a href="https://github.com/socketio/socket.io" target="_blank" rel="external">socket.io</a><br><a href="https://github.com/socketio/socket.io/issues/1113" target="_blank" rel="external">socket 404</a><br><a href="https://github.com/socketio/socket.io/issues/1390" target="_blank" rel="external">koa with socket</a></p>
+
       
     </div>
     
@@ -367,7 +388,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/react/" rel="tag"># react</a>
+            <a href="/tags/NodeJs-react-koa/" rel="tag"># NodeJs react koa</a>
           
         </div>
       
@@ -380,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/10/RN框架下多屏幕尺寸自适应样式解决方案/" rel="next" title="RN框架下多屏幕尺寸自适应样式解决方案">
-                <i class="fa fa-chevron-left"></i> RN框架下多屏幕尺寸自适应样式解决方案
+              <a href="/2017/08/02/autopilot下的NodeJs微服务/" rel="next" title="autopilot下的NodeJs微服务">
+                <i class="fa fa-chevron-left"></i> autopilot下的NodeJs微服务
               </a>
             
           </div>
@@ -389,10 +410,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/20/next-js-example/" rel="prev" title="前端框架NextJs介绍及实践">
-                前端框架NextJs介绍及实践 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,10 +428,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/04/14/react同构研究/"
-     data-title="react同构研究"
+        <div class="ds-share flat" data-thread-key="2017/09/26/socket-io-connect-problem-with-koa-react/"
+     data-title="socket io connect problem with koa & react"
      data-content=""
-     data-url="http://qweqweq.github.io/2017/04/14/react同构研究/">
+     data-url="http://qweqweq.github.io/2017/09/26/socket-io-connect-problem-with-koa-react/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -441,8 +458,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/14/react同构研究/"
-           data-title="react同构研究" data-url="http://qweqweq.github.io/2017/04/14/react同构研究/">
+      <div class="ds-thread" data-thread-key="2017/09/26/socket-io-connect-problem-with-koa-react/"
+           data-title="socket io connect problem with koa & react" data-url="http://qweqweq.github.io/2017/09/26/socket-io-connect-problem-with-koa-react/">
       </div>
     
   </div>
@@ -467,8 +484,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -521,6 +547,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
